@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Angular App</title>
+    <!-- Bootstrap CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Angular CDNs -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+
+    <div class="container mt-5">
+        <h1>Welcome to My Angular App</h1>
+        
+        <!-- Example of an Angular directive -->
+        <input type="text" ng-model="userName" placeholder="Enter your name" class="form-control mb-3"/>
+        <button ng-click="greetUser()" class="btn btn-primary">Greet Me!</button>
+
+        <!-- Display the user's greeting -->
+        <p id="greeting">{{ userName ? 'Hello, ' + userName : '' }}</p>
+    </div>
+
+    <script>
+        // Angular App Configuration
+        var app = angular.module('myApp', []);
+
+        // Controller for the application
+        app.controller('MainController', ['$scope', function($scope) {
+            $scope.userName = '';
+
+            $scope.greetUser = function() {
+                alert('test, ' + $scope.userName);
+            };
+        }]);
+    </script>
+
+</body>
+</html>
+```
